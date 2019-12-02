@@ -16,7 +16,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./onbewerkt.JPG "Original image"
-[image2]: ./cropresize.JPG "Cropped and resized"
+[image2]: ./crop.JPG "Cropped image"
 [image3]: ./flip.JPG "Horizontally flipped image"
 
 ## Rubric Points

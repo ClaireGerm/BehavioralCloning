@@ -121,9 +121,6 @@ Cropped image:
 
 ![alt_text][image2]
 
-Cropped and resized image:
-
-![alt_text][image3]
 
 
 

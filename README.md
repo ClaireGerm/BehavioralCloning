@@ -16,8 +16,8 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./onbewerkt.JPG "Original image"
-[image2]: ./crop.JPG "Cropped image"
-[image3]: ./flip.JPG "Horizontally flipped image"
+[image3]: ./crop.JPG "Cropped image"
+[image2]: ./flip.JPG "Horizontally flipped image"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  

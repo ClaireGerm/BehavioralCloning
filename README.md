@@ -66,9 +66,9 @@ I chose to use the sample data given by Udacity.
 
 #### 1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to use the Nvidia architecture. The main reason I wanted to try that architecture is because of the fact that it was designed for self driving cars. I decided to keep the architecture the same. The Nvidia paper expects input sizes of (60,266,3), our training images have a different size so I changed the input size to (70,160,3).
+The overall strategy for deriving a model architecture was to use the Nvidia architecture. The main reason I wanted to try that architecture is because of the fact that it was designed for self driving cars. I decided to keep the architecture mostly the same. The Nvidia paper expects input sizes of (60,266,3), our training images have a different size so I changed the input size to (70,160,3).
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. To combat the overfitting I also added flipped images so I had more data. The data also has an imbalance; there is way more data for left turns than for right turns. Adding horizontally flipped images will compensate for this.
+In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. To combat the overfitting I also added flipped images so I had more data. The data also has an imbalance; there is way more data for left turns than for right turns. Adding horizontally flipped images will compensate for this. A dropout layer was also added to reduce overfitting.
 
 The final step was to run the simulator to see how well the car was driving around track one. 
 
@@ -89,6 +89,9 @@ The final model architecture consisted of a convolution neural network with the 
     model.add(Conv2D(filters=48, kernel_size=5, strides=(2, 2), activation='relu'))
     model.add(Conv2D(filters=64, kernel_size=3, strides=(1, 1), activation='relu'))
     model.add(Conv2D(filters=64, kernel_size=3, strides=(1, 1), activation='relu'))
+    
+    #Add Dropout layer to reduce overfitting
+    model.add(Dropout(0.5))
 
     #Flatten Layers
     model.add(Flatten())
@@ -111,7 +114,7 @@ For my augmented data set I used the left, right, center and horizontally flippe
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. I tried to find the ideal number of epochs by trial and error. I started with 50 epochs, but that was taking me too long to process. So after that I chose to try it with just 2 epochs and that turned out to be sufficient. I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. I tried to find the ideal number of epochs by trial and error. I started with 50 epochs, but that was taking me too long to process. So after that I chose to try it starting with just 2 epochs and that turned out to not be sufficient. After trying some other values, 4 turned out to be the best option. When the epoch value was higher than 4 overfitting occurred. I used an adam optimizer so that manually training the learning rate wasn't necessary.
 
 Original image:
 

@@ -78,7 +78,7 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 The final model architecture consisted of a convolution neural network with the following layers and layer sizes:
 
-`                      def model(loss='mse', optimizer='adam'):
+	`def model(loss='mse', optimizer='adam'):
     model = Sequential()
     #Nvidia model
     #Normalization and change of the input shape:
@@ -102,9 +102,8 @@ The final model architecture consisted of a convolution neural network with the 
     model.add(Dense(1))
     model.compile(loss=loss, optimizer=optimizer)
 
-    return model 
-
-
+    return model
+    
 
 #### 3. Creation of the Training Set & Training Process
 
@@ -112,7 +111,7 @@ To capture good driving behavior, I first recorded one lap on track one using ce
 
 For my augmented data set I used the left, right, center and horizontally flipped center images.
 
-I finally randomly shuffled the data set and put 20% of the data into a validation set. 
+I finally randomly shuffled the data set and put 20% of the data into a validation set.
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. I tried to find the ideal number of epochs by trial and error. I started with 50 epochs, but that was taking me too long to process. So after that I chose to try it starting with just 2 epochs and that turned out to not be sufficient. After trying some other values, 4 turned out to be the best option. When the epoch value was higher than 4 overfitting occurred. I used an adam optimizer so that manually training the learning rate wasn't necessary.
 

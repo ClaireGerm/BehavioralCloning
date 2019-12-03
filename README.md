@@ -78,8 +78,7 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 The final model architecture consisted of a convolution neural network with the following layers and layer sizes:
 
-`    
-    def model(loss='mse', optimizer='adam'):
+`   def model(loss='mse', optimizer='adam'):
     model = Sequential()
     #Nvidia model
     #Normalization and change of the input shape:

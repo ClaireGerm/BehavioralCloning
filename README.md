@@ -66,9 +66,9 @@ I chose to use the sample data given by Udacity.
 
 #### 1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to use the Nvidia architecture. The main reason I wanted to try that architecture is because of the fact that it was designed for self driving cars.  I decided to keep the architecture the same. Only the input shape of (60,266,3) has been changed.
+The overall strategy for deriving a model architecture was to use the Nvidia architecture. The main reason I wanted to try that architecture is because of the fact that it was designed for self driving cars. I decided to keep the architecture the same. The Nvidia paper expects input sizes of (60,266,3), our training images have a different size so I changed the input size to (70,160,3).
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. To combat the overfitting I also added flipped images so I had more data.
+In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. To combat the overfitting I also added flipped images so I had more data. The data also has an imbalance; there is way more data for left turns than for right turns. Adding horizontally flipped images will compensate for this.
 
 The final step was to run the simulator to see how well the car was driving around track one. 
 
